@@ -1,0 +1,29 @@
+﻿@page "{id:Guid}"
+@model RazorPagesDemoApp.Pages.Teams.EditModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+<form method="post">
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        <div class="alert alert-success" role="alert">@message</div>
+    }
+    <h1 class="mb-3">Edit Team</h1>
+
+    <div class="mb-3">
+        <label class="form-label">Id</label>
+        <input type="text" class="form-control" asp-for="EditTeamViewModel.Id" readonly />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">Quoc Gia</label>
+        <input type="text" class="form-control" asp-for="EditTeamViewModel.QuocGia" />
+    </div>
+    <div class="mb-3">
+        <label class="form-label">So Luong Cau Thu</label>
+        <input type="number" class="form-control" asp-for="EditTeamViewModel.SLCauThu" />
+    </div>
+    <div class="mb-3 d-flex justify-content-between">
+        <button type="submit" class="btn btn-primary" asp-page-handler="Save">Save</button>
+        <button type="submit" class="btn btn-danger" asp-page-handler="Delete">Delete</button>
+    </div>
+</form>

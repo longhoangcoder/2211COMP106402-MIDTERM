@@ -1,0 +1,25 @@
+﻿@page
+@model RazorPagesDemoApp.Pages.Teams.AddModel
+@{
+    var message = ViewData["Message"]?.ToString();
+}
+<form method="post">
+    @if (!string.IsNullOrWhiteSpace(message))
+    {
+        <div class="alert alert-success" role="alert">@message</div>
+    }
+    <h1 class="mb-3">Add New Emmployee</h1>
+
+    <div class="mb-3">
+        <label class="form-label">Quoc Gia</label>
+        <input type="text" class="form-control" asp-for="AddTeamRequest.QuocGia" />
+    </div>
+
+    <div class="mb-3">
+        <label class="form-label">So Luong Cau Thu</label>
+        <input type="number" class="form-control" asp-for="AddTeamRequest.SLCauThu" />
+    </div>
+    <div class="mb-3">
+        <button type="submit" class="btn btn-primary">Create</button>
+    </div>
+</form>

@@ -1,0 +1,35 @@
+﻿@page
+@model RazorPagesDemoApp.Pages.Teams.ListModel
+@{
+}
+<h1 class="mb-3">List of Team</h1>
+
+
+@if (Model.Teams != null && Model.Teams.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Quoc Gia</th>
+                <th>So Luong Cau Thu</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var team in Model.Teams)
+            {
+                <tr>
+                    <td>@team.QuocGia</td>
+                    <td>@team.SLCauThu</td>
+                    <td>
+                        <a href="/Teams/Edit/@team.Id" class="btn btn-dark">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No teams found!!</p>
+}
