@@ -9,10 +9,10 @@ using RazorPagesDemoApp.Data;
 
 #nullable disable
 
-namespace RazorPagesDemoApp.Migrations
+namespace QuanLyBongDa.Migrations
 {
     [DbContext(typeof(RazorPagesDemoDbContext))]
-    [Migration("20221207022301_Initial Migration")]
+    [Migration("20221207025826_Initial-Migration")]
     partial class InitialMigration
     {
         /// <inheritdoc />
@@ -24,6 +24,28 @@ namespace RazorPagesDemoApp.Migrations
                 .HasAnnotation("Relational:MaxIdentifierLength", 128);
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
+
+            modelBuilder.Entity("QuanLyBongDa.Model.Domain.Member", b =>
+                {
+                    b.Property<Guid>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("uniqueidentifier");
+
+                    b.Property<int>("SoAo")
+                        .HasColumnType("int");
+
+                    b.Property<string>("TenCauThu")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ViTri")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Members");
+                });
 
             modelBuilder.Entity("RazorPagesDemoApp.Model.Domain.Team", b =>
                 {

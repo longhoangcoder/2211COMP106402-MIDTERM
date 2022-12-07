@@ -1,0 +1,35 @@
+﻿@page
+@model QuanLyBongDa.Pages.Member.ListModel
+@{
+}
+<h1 class="mb-3">List of Member</h1>
+@if (Model.Members != null && Model.Members.Any())
+{
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Ten Cau Thu</th>
+                <th>So Ao</th>
+                <th>Vi Tri</th>
+                <th> </th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var member in Model.Members)
+            {
+                <tr>
+                    <td>@member.TenCauThu</td>
+                    <td>@member.SoAo</td>
+                    <td>@member.ViTri</td>
+                    <td>
+                        <a href="/Member/Edit/@member.Id" class="btn btn-dark">Edit</a>
+                    </td>
+                </tr>
+            }
+        </tbody>
+    </table>
+}
+else
+{
+    <p>No teams found!!</p>
+}

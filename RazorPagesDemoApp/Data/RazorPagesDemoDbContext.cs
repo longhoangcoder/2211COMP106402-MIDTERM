@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using QuanLyBongDa.Model.Domain;
 using RazorPagesDemoApp.Model.Domain;
 
 namespace RazorPagesDemoApp.Data
@@ -9,6 +10,7 @@ namespace RazorPagesDemoApp.Data
         {
         }
         public DbSet<Team> Teams { get; set; }
+        public DbSet<Member> Members { get; set; }
     }
 
 
